@@ -34,13 +34,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${archivo.variable} ${mono.variable}`}>
-      <body>
-        {/* if JS never runs, make sure nothing stays hidden */}
-        <noscript>
-          <style>{`.rv{opacity:1!important;transform:none!important}.split-inner{opacity:1!important;transform:none!important}`}</style>
-        </noscript>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

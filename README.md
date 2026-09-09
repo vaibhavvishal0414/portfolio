@@ -52,25 +52,6 @@ What's in there:
 | The big headline       | `headline` — one line per row, `accent` = the orange word |
 | The paragraph          | `intro`                                                    |
 | Email / LinkedIn       | `email`, `linkedin`                                        |
-| The work cards         | `projects` — one object per project (see below)            |
-
-**Adding or editing a project:** each entry in the `projects` array becomes a card in
-the Work section. Give it a `href` and the card becomes clickable; leave `href` out and
-it shows "In progress" instead — so there are never dead links. `cover` is an image path
-in `/public`; set it to `null` for a plain gradient. `metric` shows the badge on the image.
-
-**Adding a new case study page:** copy `app/work/clinic-core/` to
-`app/work/your-slug/`, edit the text inside, then add `href: "/work/your-slug"` to that
-project in `content.js`.
-
-**Testimonials:** the `testimonials` array in `content.js`. Only put real quotes there —
-one genuine line from a colleague is worth more than five invented ones, and a recruiter
-who checks a fabricated reference ends the conversation. Ask a PM or engineer you worked
-with for two sentences and paste them in; the layout adapts to however many you have.
-
-**Key metrics:** the `stats` array. Each has a `to` (the number it counts up to) plus an
-optional `prefix`/`suffix`. They animate when scrolled into view.
-
 **Swapping the images or the CV:** on GitHub go into the `public` folder, click the file you want to replace, delete it, then use **Add file → Upload files** with your new one using the **same filename**:
 
 - `photo.jpg` — your headshot (wide crop, roughly 2:1, face centred)
