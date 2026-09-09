@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { content } from "../../../content";
 import Counter from "../../counter";
-import SmoothScroll from "../../smooth-scroll";
 import SiteFooter from "../../site-footer";
+import { Reveal, SplitText } from "../../reveal";
 
 export const metadata = {
   title: "Clinic Core — POS for clinical billing · Vaibhav Vishal",
@@ -68,7 +68,6 @@ const decisions = [
 export default function CaseStudy() {
   return (
     <>
-      <SmoothScroll />
       <main className="doc">
       <nav className="doc-nav">
         <Link className="back" href="/">
@@ -86,44 +85,51 @@ export default function CaseStudy() {
         <span className="doc-nav-meta">Emoha Elder Care · 2024–25</span>
       </nav>
 
-      <header className="doc-head">
-        <p className="eyebrow">
-          <i className="dot" />
-          Case study · 0 to 1
-        </p>
-        <h1>Clinic Core</h1>
-        <p className="doc-lede">
-          A unified POS for clinical billing — invoicing, payment collection and
-          reconciliation in one guided flow.
-        </p>
-      </header>
-
-      <figure className="doc-hero">
+      {/* sticky hero — the page slides up over it */}
+      <div className="cs-hero">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/work/pos-cover.jpg" alt="Clinic Core — a unified POS for clinical billing" />
-      </figure>
+        <div className="cs-hero-veil" />
+        <span className="cs-scroll">Scroll</span>
+      </div>
 
-      <dl className="facts">
-        {facts.map(([k, v]) => (
-          <div key={k}>
-            <dt>{k}</dt>
-            <dd>{v}</dd>
-          </div>
-        ))}
-      </dl>
+      <div className="cs-sheet">
+        <div className="cs-sheet-inner">
+          <Reveal as="p" className="eyebrow">
+            <i className="dot" />
+            Case study · 0 to 1
+          </Reveal>
 
-      <dl className="metrics">
-        {metrics.map((m) => (
-          <div key={m.label}>
-            <dt>
-              <Counter to={m.to} suffix={m.suffix} />
-            </dt>
-            <dd>{m.label}</dd>
-          </div>
-        ))}
-      </dl>
+          <SplitText as="h1" className="cs-title" text="Clinic Core" stagger={70} />
 
-      <section className="doc-section">
+          <SplitText
+            as="p"
+            className="doc-lede"
+            text="A unified POS for clinical billing — invoicing, payment collection and reconciliation in one guided flow."
+          />
+
+          <Reveal as="dl" className="facts">
+            {facts.map(([k, v]) => (
+              <div key={k}>
+                <dt>{k}</dt>
+                <dd>{v}</dd>
+              </div>
+            ))}
+          </Reveal>
+
+          <Reveal as="dl" className="metrics" delay={80}>
+            {metrics.map((m) => (
+              <div key={m.label}>
+                <dt>
+                  <Counter to={m.to} suffix={m.suffix} />
+                </dt>
+                <dd>{m.label}</dd>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+
+      <Reveal as="section" className="doc-section">
         <h2>
           <span>01</span> Problem
         </h2>
@@ -135,15 +141,15 @@ export default function CaseStudy() {
           multiple care centres, that uncertainty showed up as reconciliation errors
           and repeated follow-ups.
         </p>
-      </section>
+      </Reveal>
 
-      <figure className="doc-figure">
+      <Reveal as="figure" className="doc-figure">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/work/pos-hands.jpg" alt="Invoice creation in context" />
         <figcaption>Billing happens standing up, mid-shift — not at a desk.</figcaption>
-      </figure>
+      </Reveal>
 
-      <section className="doc-section">
+      <Reveal as="section" className="doc-section">
         <h2>
           <span>02</span> Research
         </h2>
@@ -178,9 +184,9 @@ export default function CaseStudy() {
           than a faster invoice form — and it&rsquo;s why the gain came from clarity
           rather than from cutting clicks.
         </p>
-      </section>
+      </Reveal>
 
-      <section className="doc-section">
+      <Reveal as="section" className="doc-section">
         <h2>
           <span>03</span> Iteration
         </h2>
@@ -217,16 +223,16 @@ export default function CaseStudy() {
           The frequent action belongs on the surface, not behind the object it relates
           to.
         </p>
-      </section>
+      </Reveal>
 
-      <figure className="doc-figure doc-figure--split">
+      <Reveal as="figure" className="doc-figure doc-figure--split">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/work/pos-home.jpg" alt="Home screen with the floating create-invoice action" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/work/pos-flow.jpg" alt="Invoice creation flow — entry point through to customer search" />
-      </figure>
+      </Reveal>
 
-      <section className="doc-section">
+      <Reveal as="section" className="doc-section">
         <h2>
           <span>04</span> Decisions
         </h2>
@@ -243,9 +249,9 @@ export default function CaseStudy() {
           who&rsquo;d otherwise skip ahead, and mobile-first meant trading away the
           density a desktop reconciliation view could have offered.
         </p>
-      </section>
+      </Reveal>
 
-      <section className="doc-section">
+      <Reveal as="section" className="doc-section">
         <h2>
           <span>05</span> Outcome
         </h2>
@@ -269,9 +275,9 @@ export default function CaseStudy() {
           after, and time-to-reconcile at day close — both stronger signals than raw
           speed.
         </p>
-      </section>
+      </Reveal>
 
-      <section className="doc-section">
+      <Reveal as="section" className="doc-section">
         <h2>
           <span>06</span> What I took from it
         </h2>
@@ -280,8 +286,10 @@ export default function CaseStudy() {
           visual refinement did. And preventing an error is worth more than a good error
           message.
         </p>
-      </section>
+      </Reveal>
 
+      </div>
+      </div>
     </main>
       <SiteFooter />
     </>

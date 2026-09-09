@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects } from "../content";
+import { Reveal } from "./reveal";
 
 function Arrow() {
   return (
@@ -71,7 +72,7 @@ function Card({ project }) {
 export default function WorkSection() {
   return (
     <section className="section" id="work">
-      <header className="section-head">
+      <Reveal as="header" className="section-head">
         <span className="section-label">
           <i className="dot" />
           Selected work
@@ -80,11 +81,13 @@ export default function WorkSection() {
           Enterprise platforms and consumer apps, mostly in healthcare. Case studies
           are written around the decisions, not the screenshots.
         </p>
-      </header>
+      </Reveal>
 
       <div className="cards">
-        {projects.map((p) => (
-          <Card key={p.slug} project={p} />
+        {projects.map((p, i) => (
+          <Reveal key={p.slug} delay={i * 110}>
+            <Card project={p} />
+          </Reveal>
         ))}
       </div>
     </section>

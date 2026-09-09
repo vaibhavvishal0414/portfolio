@@ -1,4 +1,5 @@
 import { testimonials } from "../content";
+import { Reveal } from "./reveal";
 
 function Quote() {
   return (
@@ -19,7 +20,7 @@ export default function TestimonialsSection() {
       className={`section reviews${testimonials.length === 1 ? " reviews--single" : ""}`}
       id="reviews"
     >
-      <header className="section-head">
+      <Reveal as="header" className="section-head">
         <span className="section-label">
           <i className="dot" />
           What people say
@@ -28,11 +29,11 @@ export default function TestimonialsSection() {
           Feedback from the people who use what I design, and the teams I build it
           with.
         </p>
-      </header>
+      </Reveal>
 
       <div className="review-grid">
-        {testimonials.map((t) => (
-          <figure className="review" key={t.name + t.quote.slice(0, 20)}>
+        {testimonials.map((t, i) => (
+          <Reveal as="figure" className="review" key={t.name + t.quote.slice(0, 20)} delay={i * 110}>
             <Quote />
             <blockquote>{t.quote}</blockquote>
             <figcaption>
@@ -42,7 +43,7 @@ export default function TestimonialsSection() {
                 {t.context ? ` · ${t.context}` : ""}
               </span>
             </figcaption>
-          </figure>
+          </Reveal>
         ))}
       </div>
     </section>

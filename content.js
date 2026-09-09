@@ -100,9 +100,18 @@ export const testimonials = [
 // ─────────────────────────────────────────────────────────────
 
 export const footer = {
-  // The big line above the links
+  // The big line at the top of the footer
   cta: "Currently open to product design roles.",
+
+  availabilityTitle: "Availability",
+  availability: "Open to product design roles",
+
+  // A short line in the right-hand footer block
+  blurb:
+    "Full-time or contract. Healthcare, fintech and enterprise tools are where I'm most useful.",
+
   location: "Gurugram, India",
+  phone: "+91 84090 91091",
   nav: [
     { label: "Work", href: "/#work" },
     { label: "Clinic Core", href: "/work/clinic-core" },

@@ -1,22 +1,23 @@
 import { stats } from "../content";
 import Counter from "./counter";
+import { Reveal } from "./reveal";
 
 export default function StatsSection() {
   return (
     <section className="section stats-section" id="numbers">
-      <span className="section-label">
+      <Reveal as="span" className="section-label">
         <i className="dot" />
         By the numbers
-      </span>
+      </Reveal>
 
       <dl className="stats">
-        {stats.map((s) => (
-          <div className="stat" key={s.label}>
+        {stats.map((s, i) => (
+          <Reveal className="stat" key={s.label} delay={i * 90}>
             <dt>
               <Counter to={s.to} prefix={s.prefix} suffix={s.suffix} />
             </dt>
             <dd>{s.label}</dd>
-          </div>
+          </Reveal>
         ))}
       </dl>
     </section>

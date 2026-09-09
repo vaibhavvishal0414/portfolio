@@ -1,7 +1,6 @@
 import { content } from "../content";
 import Cursor from "./cursor";
 import Headline from "./headline";
-import SmoothScroll from "./smooth-scroll";
 import StatsSection from "./stats-section";
 import TestimonialsSection from "./testimonials-section";
 import WorkSection from "./work-section";
@@ -10,7 +9,6 @@ import SiteFooter from "./site-footer";
 export default function Page() {
   return (
     <>
-      <SmoothScroll />
       <Cursor />
 
       <main className="shell">
