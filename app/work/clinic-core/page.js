@@ -287,8 +287,6 @@ export default function CaseStudy() {
           message.
         </p>
       </Reveal>
-
-      </div>
       </div>
     </main>
       <SiteFooter />
